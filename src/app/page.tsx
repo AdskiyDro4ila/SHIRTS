@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import type { StaticImageData } from 'next/image'
 import Image from 'next/image'
 
 export default function Home() {
@@ -41,7 +42,8 @@ export default function Home() {
                   <Image
                     src={`/placeholder-design-${i}.jpg`}
                     alt="T-shirt design"
-                    fill
+                    width={500}
+                    height={500}
                     className="object-cover transition-transform group-hover:scale-105"
                   />
                 </div>
