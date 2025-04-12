@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { version } from '../../../package.json'
 
 const footerLinks = {
   about: [
@@ -96,9 +97,14 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t border-border pt-8">
-          <p className="text-center text-sm text-muted">
-            © {new Date().getFullYear()} Design Democracy. All rights reserved. v1.0.0
-          </p>
+          <div className="flex flex-col items-center justify-center space-y-2">
+            <p className="text-center text-sm text-muted">
+              © {new Date().getFullYear()} Design Democracy. All rights reserved.
+            </p>
+            <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+              v1.0.0
+            </span>
+          </div>
         </div>
       </div>
     </footer>

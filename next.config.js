@@ -7,7 +7,6 @@ const nextConfig = {
     unoptimized: true,
   },
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['@heroicons/react', '@headlessui/react'],
   },
   output: 'standalone',
