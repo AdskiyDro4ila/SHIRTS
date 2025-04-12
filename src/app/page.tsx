@@ -1,62 +1,55 @@
+import Link from 'next/link'
+import Image from 'next/image'
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+    <div className="relative">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative overflow-hidden py-20 sm:py-32">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h1 className="text-5xl font-extrabold text-gray-900 sm:text-6xl">
-              <span className="block">Design Democracy</span>
-              <span className="block text-indigo-600">Vote. Create. Wear.</span>
+            <h1 className="mb-8 inline-block bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+              Vote. Create. Wear.
             </h1>
-            <p className="mt-6 text-xl text-gray-500 max-w-3xl mx-auto">
+            <p className="mx-auto mb-12 max-w-2xl text-lg text-muted">
               Join our community-driven t-shirt platform where your vote shapes the next big designs.
               Get early access to popular items and express your unique style.
             </p>
-            <div className="mt-10 flex justify-center gap-4">
-              <a
-                href="/designs"
-                className="rounded-md bg-indigo-600 px-8 py-3 text-lg font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
+            <div className="flex justify-center gap-4">
+              <Link href="/designs" className="btn btn-primary">
                 Browse Designs
-              </a>
-              <a
-                href="/how-it-works"
-                className="rounded-md bg-white px-8 py-3 text-lg font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-              >
+              </Link>
+              <Link href="/how-it-works" className="btn btn-outline">
                 How It Works
-              </a>
+              </Link>
             </div>
           </div>
         </div>
+
+        {/* Background Effects */}
+        <div className="absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] dark:bg-gray-950 dark:[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]" />
       </section>
 
-      {/* Featured Designs Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            Trending Designs
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Placeholder for featured designs */}
-            {[1, 2, 3].map((item) => (
-              <div
-                key={item}
-                className="group relative bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="aspect-w-3 aspect-h-4 bg-gray-200">
-                  {/* Image placeholder */}
-                  <div className="w-full h-64 bg-gray-200 animate-pulse" />
+      {/* Trending Designs Section */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="mb-12 text-center">Trending Designs</h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="card group">
+                <div className="relative aspect-square mb-4 overflow-hidden rounded-lg bg-gray-100">
+                  <Image
+                    src={`/placeholder-design-${i}.jpg`}
+                    alt="T-shirt design"
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
+                  />
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-900">Design Title</h3>
-                  <p className="mt-1 text-sm text-gray-500">By Designer Name</p>
-                  <div className="mt-4 flex items-center justify-between">
-                    <span className="text-indigo-600 font-semibold">$29.99</span>
-                    <button className="text-sm text-gray-500 hover:text-indigo-600">
-                      Vote →
-                    </button>
-                  </div>
+                <h3 className="mb-2 text-lg font-semibold">Design Title</h3>
+                <p className="mb-4 text-sm text-muted">By Designer Name</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-lg font-bold">$29.99</span>
+                  <button className="btn btn-primary">Vote →</button>
                 </div>
               </div>
             ))}
@@ -64,28 +57,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Community Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">
-            Join Our Growing Community
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl font-bold text-indigo-600 mb-2">1000+</div>
-              <div className="text-gray-600">Active Designers</div>
+      {/* Community Stats */}
+      <section className="border-y border-border bg-muted/5 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="mb-12 text-center">Join Our Growing Community</h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="text-center">
+              <p className="text-4xl font-bold gradient-text">1000+</p>
+              <p className="mt-2 text-muted">Active Designers</p>
             </div>
-            <div className="p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl font-bold text-indigo-600 mb-2">5000+</div>
-              <div className="text-gray-600">Designs Created</div>
+            <div className="text-center">
+              <p className="text-4xl font-bold gradient-text">5000+</p>
+              <p className="mt-2 text-muted">Designs Created</p>
             </div>
-            <div className="p-6 bg-white rounded-lg shadow-sm">
-              <div className="text-4xl font-bold text-indigo-600 mb-2">10k+</div>
-              <div className="text-gray-600">Happy Customers</div>
+            <div className="text-center">
+              <p className="text-4xl font-bold gradient-text">10k+</p>
+              <p className="mt-2 text-muted">Happy Customers</p>
             </div>
           </div>
         </div>
       </section>
     </div>
-  );
+  )
 } 

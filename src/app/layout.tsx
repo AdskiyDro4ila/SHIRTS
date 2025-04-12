@@ -1,27 +1,26 @@
-import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import type { Metadata } from 'next';
+import { Inter as FontSans } from 'next/font/google';
+import { Montserrat as FontHeading } from 'next/font/google';
 import './globals.css';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
+import { Providers } from '@/contexts/Providers';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import CookieConsent from '../components/common/CookieConsent';
-import { Providers } from '../contexts/Providers';
 
-const inter = Inter({
+const fontSans = FontSans({
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-sans',
 });
 
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  themeColor: '#4F46E5',
-};
+const fontHeading = FontHeading({
+  subsets: ['latin'],
+  variable: '--font-heading',
+});
 
 export const metadata: Metadata = {
-  title: 'Design Democracy - T-Shirt E-Commerce',
-  description: 'A community-driven t-shirt platform where you can vote on designs and get early access to popular items.',
-  keywords: 't-shirt, design, voting, community, fashion, print-on-demand',
+  title: 'Design Democracy - Community-Driven T-Shirt Designs',
+  description: 'Vote on designs, create your own, and wear the community\'s best t-shirt designs.',
+  keywords: 't-shirts, design, community, voting, fashion, custom apparel',
 };
 
 export default function RootLayout({
@@ -30,15 +29,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className={`${inter.className} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${fontSans.variable} ${fontHeading.variable} font-sans min-h-screen flex flex-col`}>
         <Providers>
-          <div className="min-h-screen flex flex-col">
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-            <CookieConsent />
-          </div>
+          <div className="fixed inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)]" />
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <CookieConsent />
         </Providers>
       </body>
     </html>
