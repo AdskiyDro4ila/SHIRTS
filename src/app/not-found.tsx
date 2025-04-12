@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function NotFound() {
   return (
-    <div className="py-12">
+    <div className="min-h-screen py-12">
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <div className="mb-8 flex justify-center">
