@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter as FontSans } from 'next/font/google';
+import { Geist, Geist_Mono } from 'next/font/google';
 import { Montserrat as FontHeading } from 'next/font/google';
 import './globals.css';
 import { Providers } from '@/contexts/Providers';
@@ -7,9 +7,14 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CookieConsent from '../components/common/CookieConsent';
 
-const fontSans = FontSans({
+const geistSans = Geist({
+  variable: '--font-geist-sans',
   subsets: ['latin'],
-  variable: '--font-sans',
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 const fontHeading = FontHeading({
@@ -30,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${fontSans.variable} ${fontHeading.variable} font-sans min-h-screen flex flex-col`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${fontHeading.variable} font-sans min-h-screen flex flex-col antialiased`}>
         <Providers>
           <div className="fixed inset-0 -z-10 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#1e293b_1px,transparent_1px)]" />
           <Header />
@@ -41,4 +46,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-} 
+}

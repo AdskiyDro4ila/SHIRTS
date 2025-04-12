@@ -21,7 +21,8 @@ module.exports = {
         muted: 'var(--muted)',
       },
       fontFamily: {
-        sans: ['var(--font-sans)'],
+        sans: ['var(--font-geist-sans)'],
+        mono: ['var(--font-geist-mono)'],
         heading: ['var(--font-heading)'],
       },
       keyframes: {
