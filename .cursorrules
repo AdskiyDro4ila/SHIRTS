@@ -1,0 +1,241 @@
+{
+    "version": "1.0",
+    "project": "tshirt-ecommerce",
+    "rules": {
+        "general": {
+            "max_line_length": 100,
+            "indent_style": "space",
+            "indent_size": 2,
+            "end_of_line": "lf",
+            "charset": "utf-8",
+            "trim_trailing_whitespace": true,
+            "insert_final_newline": true
+        },
+        "naming": {
+            "components": "PascalCase",
+            "functions": "camelCase",
+            "variables": "camelCase",
+            "constants": "UPPER_SNAKE_CASE",
+            "interfaces": "PascalCase",
+            "types": "PascalCase",
+            "enums": "PascalCase"
+        },
+        "imports": {
+            "order": [
+                "react",
+                "next",
+                "external-libraries",
+                "components",
+                "hooks",
+                "utils",
+                "types",
+                "styles"
+            ],
+            "grouping": true,
+            "max_dependencies": 20
+        },
+        "components": {
+            "structure": {
+                "required_files": [
+                    "index.tsx",
+                    "styles.ts",
+                    "types.ts",
+                    "utils.ts"
+                ],
+                "props_interface": true,
+                "default_export": true
+            },
+            "naming": {
+                "prefix": "Tshirt",
+                "suffix": "Component"
+            }
+        },
+        "api": {
+            "structure": {
+                "base_path": "/api/v1",
+                "versioning": true,
+                "error_handling": true
+            },
+            "endpoints": {
+                "products": "/products",
+                "orders": "/orders",
+                "customers": "/customers",
+                "analytics": "/analytics",
+                "webhooks": "/webhooks"
+            }
+        },
+        "database": {
+            "naming": {
+                "tables": "snake_case",
+                "columns": "snake_case",
+                "primary_keys": "id",
+                "foreign_keys": "{table_name}_id"
+            },
+            "required_tables": [
+                "products",
+                "orders",
+                "customers",
+                "designs",
+                "inventory",
+                "payments",
+                "shipping"
+            ]
+        },
+        "testing": {
+            "coverage": {
+                "statements": 80,
+                "branches": 80,
+                "functions": 80,
+                "lines": 80
+            },
+            "naming": {
+                "test_files": "*.test.ts",
+                "test_utils": "*.test.utils.ts"
+            }
+        },
+        "security": {
+            "required_headers": [
+                "X-Frame-Options",
+                "X-Content-Type-Options",
+                "X-XSS-Protection"
+            ],
+            "auth": {
+                "jwt_expiry": "24h",
+                "refresh_token_expiry": "7d"
+            }
+        },
+        "stripe": {
+            "webhook_handling": true,
+            "error_logging": true,
+            "test_mode": true
+        },
+        "pod_integration": {
+            "required_fields": [
+                "design_id",
+                "size",
+                "color",
+                "quantity",
+                "shipping_address"
+            ],
+            "error_handling": true,
+            "retry_mechanism": true
+        },
+        "analytics": {
+            "required_metrics": [
+                "sales",
+                "revenue",
+                "popular_designs",
+                "customer_metrics"
+            ],
+            "tracking": {
+                "page_views": true,
+                "conversion_rates": true,
+                "cart_abandonment": true
+            }
+        },
+        "performance": {
+            "image_optimization": true,
+            "lazy_loading": true,
+            "code_splitting": true,
+            "caching": {
+                "static_assets": "1 week",
+                "api_responses": "5 minutes"
+            }
+        },
+        "accessibility": {
+            "wcag_level": "AA",
+            "required_attributes": [
+                "alt",
+                "aria-label",
+                "role"
+            ]
+        },
+        "documentation": {
+            "required_files": [
+                "README.md",
+                "API.md",
+                "CONTRIBUTING.md",
+                "CHANGELOG.md"
+            ],
+            "code_comments": {
+                "functions": true,
+                "complex_logic": true,
+                "api_endpoints": true
+            }
+        },
+        "unique_features": {
+            "voting_system": {
+                "required_components": [
+                    "VoteButton",
+                    "PopularityCounter",
+                    "TrendingIndicator"
+                ],
+                "real_time_updates": true,
+                "rate_limiting": true
+            },
+            "gamification": {
+                "user_points": true,
+                "badges_system": true,
+                "achievements": true,
+                "leaderboard": true
+            },
+            "ar_features": {
+                "try_on": true,
+                "design_preview": true,
+                "size_visualization": true
+            }
+        },
+        "eu_compliance": {
+            "gdpr": {
+                "required_components": [
+                    "CookieConsent",
+                    "PrivacyPolicy",
+                    "DataExport",
+                    "RightToBeForgotten"
+                ],
+                "data_retention": {
+                    "user_data": "2 years",
+                    "analytics": "1 year",
+                    "logs": "6 months"
+                }
+            },
+            "consumer_rights": {
+                "required_sections": [
+                    "ReturnPolicy",
+                    "SizeGuide",
+                    "ShippingInfo",
+                    "VatCalculator"
+                ],
+                "price_transparency": true,
+                "shipping_estimates": true
+            },
+            "accessibility": {
+                "wcag_level": "AA",
+                "required_features": [
+                    "ScreenReader",
+                    "KeyboardNav",
+                    "HighContrast",
+                    "FontScaling"
+                ]
+            }
+        },
+        "performance": {
+            "core_web_vitals": {
+                "lcp": "< 2.5s",
+                "fid": "< 100ms",
+                "cls": "< 0.1"
+            },
+            "optimization": {
+                "image_compression": true,
+                "code_splitting": true,
+                "lazy_loading": true,
+                "prefetching": true
+            },
+            "caching": {
+                "static_assets": "1 week",
+                "api_responses": "5 minutes",
+                "user_preferences": "1 month"
+            }
+        }
+    }
+} 
