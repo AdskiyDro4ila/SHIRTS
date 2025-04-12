@@ -97,7 +97,7 @@ export default function Footer() {
         </div>
         <div className="mt-12 border-t border-border pt-8">
           <p className="text-center text-sm text-muted">
-            © {new Date().getFullYear()} Design Democracy. All rights reserved.
+            © {new Date().getFullYear()} Design Democracy. All rights reserved. v1.0.0
           </p>
         </div>
       </div>
